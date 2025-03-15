@@ -1,0 +1,10 @@
+search-suggestion-extension/
+├── manifest.json
+├── background.js
+├── popup/
+│   ├── index.html
+│   ├── popup.js
+│   ├── popup.css
+│   └── logo.png
+└── content-scripts/
+    └── content.js 

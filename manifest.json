@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "搜索联想词获取器",
+  "version": "1.0",
+  "description": "获取百度和谷歌搜索的相关联想词",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "tabs",
+    "storage",
+    "alarms",
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "*://*.baidu.com/*",
+    "*://*.google.com/*"
+  ],
+  "action": {
+    "default_popup": "popup/index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.baidu.com/*",
+        "*://*.google.com/*"
+      ],
+      "js": ["content-scripts/content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["popup/*", "content-scripts/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+} 

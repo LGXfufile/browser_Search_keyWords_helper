@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索联想词获取器</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div id="app">
+        <div class="header">
+            <img src="logo.png" class="logo" alt="logo">
+            <h2>搜索联想词助手</h2>
+        </div>
+        <div class="container">
+            <div class="stats-row">
+                <div class="stat-item">
+                    <div class="stat-value" id="totalWords">0</div>
+                    <div class="stat-label">已获取词数</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="remainingQuota">10</div>
+                    <div class="stat-label">今日剩余次数</div>
+                </div>
+            </div>
+            
+            <button class="btn btn-primary" id="getSuggestions">获取联想词</button>
+            
+            <div class="results-section hidden" id="resultsSection">
+                <div class="results-header">
+                    <span>相关联想词<span class="tag-count" id="tagCount">0</span></span>
+                    <button class="export-btn" id="exportToExcel">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        导出Excel
+                    </button>
+                </div>
+                <div class="tags-container" id="tagsContainer">
+                    <!-- 标签将在这里动态生成 -->
+                </div>
+            </div>
+            
+            <div class="upgrade-section">
+                <button class="btn btn-warning" id="upgradeBtn">升级至专业版</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="logo.js"></script>
+    <script src="popup.js"></script>
+    <div class="overlay" id="overlay"></div>
+    <div class="keyword-details" id="keywordDetails">
+        <div class="keyword-details-header">
+            <h3 id="keywordTitle">关键词详情</h3>
+            <button class="keyword-details-close" id="closeDetails">&times;</button>
+        </div>
+        <div class="keyword-details-content" id="keywordContent">
+            <p>
+                <span class="label">月搜索量:</span>
+                <span class="value" id="searchVolume">-</span>
+            </p>
+            <p>
+                <span class="label">竞争度:</span>
+                <span class="value" id="competition">-</span>
+            </p>
+            <p>
+                <span class="label">点击价值:</span>
+                <span class="value" id="clickValue">-</span>
+            </p>
+            <p>
+                <span class="label">推荐指数:</span>
+                <span class="value" id="recommendIndex">-</span>
+            </p>
+        </div>
+        <div class="keyword-details-footer">
+            <button class="btn btn-primary" id="copyKeyword">复制关键词</button>
+        </div>
+    </div>
+</body>
+</html> 
